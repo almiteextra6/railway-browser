@@ -2,10 +2,10 @@ FROM mcr.microsoft.com/playwright:v1.63.0-noble
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package.json ./
 
 RUN npm install
 
-COPY . .
+COPY index.js ./
 
-CMD ["npm", "start"]
+CMD ["node", "index.js"]
