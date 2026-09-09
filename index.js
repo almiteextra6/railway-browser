@@ -26,7 +26,6 @@ const URL = "https://web-terminal-b2ko2.sprites.app/";
     console.log("Initial load error:", error.message);
   }
 
-  // Keep browser process running
   setInterval(async () => {
     try {
       await page.reload({
