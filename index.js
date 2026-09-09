@@ -15,16 +15,12 @@ const URL = "https://web-terminal-b2ko2.sprites.app/";
 
   const page = await browser.newPage();
 
-  try {
-    await page.goto(URL, {
-      waitUntil: "domcontentloaded",
-      timeout: 60000
-    });
+  await page.goto(URL, {
+    waitUntil: "domcontentloaded",
+    timeout: 60000
+  });
 
-    console.log("Opened:", URL);
-  } catch (error) {
-    console.log("Initial load error:", error.message);
-  }
+  console.log("Opened:", URL);
 
   setInterval(async () => {
     try {
@@ -33,9 +29,9 @@ const URL = "https://web-terminal-b2ko2.sprites.app/";
         timeout: 60000
       });
 
-      console.log("Page refreshed:", new Date().toISOString());
-    } catch (error) {
-      console.log("Refresh error:", error.message);
+      console.log("Still running:", new Date().toISOString());
+    } catch (err) {
+      console.log("Reload error:", err.message);
     }
   }, 60000);
 })();
